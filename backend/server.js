@@ -9,7 +9,7 @@ const app = express();
 dotenv.config();
 
 app.use(express.json()) // to parse the incomming requests with json  payload (form req.body)
-
+app.use(cookieParser())
 const port = process.env.PORT || 4000
 
 app.get('/',(req ,res)=>{
