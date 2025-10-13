@@ -7,8 +7,9 @@ import messageRoutes from "./routes/message.routes.js"
 import userRoutes from "./routes/user.route.js"
 
 import connectDB from "./db/db.connection.js";
+import {app, server} from "./socket/socket.js"
 
-const app = express();
+// const app = express();
 dotenv.config();
 
 app.use(express.json()) // to parse the incomming requests with json  payload (form req.body)
@@ -23,7 +24,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
-app.listen(port, () => {
+server.listen(port, () => {
   connectDB();
  console.log(`Server is running on ${port}`);
 });
